@@ -45,7 +45,7 @@ public class Main {
 			statement.executeUpdate("CREATE TABLE invTypes (typeID INTEGER, typeName TEXT)");
 			prep = connection.prepareStatement("insert into invTypes values(?,?)");
 
-			InputStream dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/invTypes-oceanus.csv"));
+			InputStream dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/invTypes-phoebe.csv"));
 			BufferedReader reader = new BufferedReader(new InputStreamReader(dataStream, Charset.forName("UTF-8")));
 			String line;
 			while ((line = reader.readLine()) != null) 
@@ -69,7 +69,7 @@ public class Main {
 			statement.executeUpdate("CREATE TABLE staStations (stationID INTEGER, stationName TEXT)");
 			prep = connection.prepareStatement("insert into staStations values(?,?)");
 
-			dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/staStations-oceanus.csv"));
+			dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/staStations-phoebe.csv"));
 			reader = new BufferedReader(new InputStreamReader(dataStream, Charset.forName("UTF-8")));
 			while ((line = reader.readLine()) != null) 
 			{
