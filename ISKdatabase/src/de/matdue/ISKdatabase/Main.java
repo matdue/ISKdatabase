@@ -33,7 +33,7 @@ public class Main {
 
 			statement.executeUpdate("PRAGMA auto_vacuum = FULL");
 			statement.executeUpdate("PRAGMA page_size = 4096");
-			statement.executeUpdate("PRAGMA user_version = 3");
+			statement.executeUpdate("PRAGMA user_version = 4");
 
 			statement.executeUpdate("drop table if exists android_metadata");
 			statement.executeUpdate("CREATE TABLE android_metadata (locale TEXT)");
@@ -45,7 +45,7 @@ public class Main {
 			statement.executeUpdate("CREATE TABLE invTypes (typeID INTEGER, typeName TEXT)");
 			prep = connection.prepareStatement("insert into invTypes values(?,?)");
 
-			InputStream dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/invTypes-phoebe.csv"));
+			InputStream dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/invTypes-carnyx.csv"));
 			BufferedReader reader = new BufferedReader(new InputStreamReader(dataStream, Charset.forName("UTF-8")));
 			String line;
 			while ((line = reader.readLine()) != null) 
@@ -69,7 +69,7 @@ public class Main {
 			statement.executeUpdate("CREATE TABLE staStations (stationID INTEGER, stationName TEXT)");
 			prep = connection.prepareStatement("insert into staStations values(?,?)");
 
-			dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/staStations-phoebe.csv"));
+			dataStream = new BOMInputStream(Main.class.getResourceAsStream("/data/staStations-carnyx.csv"));
 			reader = new BufferedReader(new InputStreamReader(dataStream, Charset.forName("UTF-8")));
 			while ((line = reader.readLine()) != null) 
 			{
